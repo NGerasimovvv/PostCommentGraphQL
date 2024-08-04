@@ -1,0 +1,35 @@
+type Post {
+    id: ID!
+    textPost: String!
+    authorPost: String!
+    comments: [CommentResponse!]!
+    commentable: Boolean!
+}
+
+type Comment {
+    id: ID!
+    textComment: String!
+    postId: ID!
+    authorComment: String!
+}
+
+type CommentResponse {
+    id: ID!
+    textComment: String!
+    postId: ID!
+    parentCommentID: ID
+    authorComment: String!
+    replies: [CommentResponse!]!
+}
+
+type Query {
+    posts(limit: Int, offset: Int): [Post!]!
+    post(id: ID!, limit: Int, offset: Int): Post
+    comments(limit: Int, offset: Int): [CommentResponse!]!
+    comment(id: ID!, limit: Int, offset: Int): CommentResponse
+}
+
+type Mutation {
+    createPost(textPost: String!, commentable: Boolean!, authorPost: String!): Post!
+    createComment(textComment: String!, itemId: ID!, authorComment: String!): CommentResponse!
+}
