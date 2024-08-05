@@ -23,6 +23,11 @@ ____
 ____
 Приложение имеет docker-compose файл. Также образ с типом данных in-memory https://hub.docker.com/r/ngerasimovvv/graphqlsmemory
 ____
+### Тесты:
+Также были добавлены тесты. Находятся в graph/resolver_test.go
+
+go test ./...
+____
 ### Примеры запросов: 
 Создание поста: 
 
